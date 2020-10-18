@@ -2,13 +2,12 @@
 
 body {
   color: white;
-  font-family: hosted-roboto, Helvetica, "Trebuchet MS", Verdana, sans-serif;
+  font-family: Xhosted-roboto, Helvetica, "Trebuchet MS", Verdana, sans-serif;
   font-size: 15px;
   line-height:1.4;
 }
 
-/* Add Roboto Font */
-
+/* add Roboto font */
 @font-face {
     font-family: 'hosted-roboto';
     src: url('font/hosted-roboto.ttf') format('truetype');
