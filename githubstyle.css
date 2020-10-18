@@ -1,0 +1,13 @@
+/* ealmonte */
+
+body {
+  color: white;
+  font-family: "Verdana";
+  font-size: 15px;
+  line-height:1.4;
+}
+
+/*use for all elements */
+* {
+  box-sizing: border-box;
+}
