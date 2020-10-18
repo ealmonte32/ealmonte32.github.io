@@ -12,7 +12,7 @@ body {
     font-family: 'ubuntu_monoregular';
     src: url('font/hosted-ubuntu-mono-webfont.woff2') format('woff2'),
          url('font/hosted-ubuntu-mono-webfont.woff') format('woff');
-    font-weight: normal;
+    font-weight: lighter; /*normal;*/
     font-style: normal;
 
 }
