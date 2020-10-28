@@ -1,3 +1,6 @@
 # ignore these files when uploading from git
+*.git
 *.log
 *.DS_Store
+*.fseventsd/*
+*.Spotlight-V100/*
