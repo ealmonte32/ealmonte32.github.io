@@ -7,7 +7,8 @@ body {
   line-height:1.4;
   background-image: url('bodybg.jpg');
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: cover;
+  position: relative;
 }
 
 /* add Roboto font */
