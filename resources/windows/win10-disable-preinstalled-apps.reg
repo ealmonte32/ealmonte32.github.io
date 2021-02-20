@@ -237,7 +237,7 @@ Windows Registry Editor Version 5.00
 ; Other devices
 ;
 
-; Let your apps automatically share and sync info with wireless devices that don’t explicitly pair with your PC, tablet, or phone
+; Let your apps automatically share and sync info with wireless devices that donâ€™t explicitly pair with your PC, tablet, or phone
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\LooselyCoupled]
 "Value"="Deny"
 
