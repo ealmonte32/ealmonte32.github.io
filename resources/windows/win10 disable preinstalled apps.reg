@@ -1,0 +1,418 @@
+Windows Registry Editor Version 5.00
+
+; Show contacts on the taskbar
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People]
+"PeopleBand"=dword:00000000
+
+; Disable Dynamically inserted tiles
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager]
+"ContentDeliveryAllowed"=dword:00000000
+"FeatureManagementEnabled"=dword:00000000
+
+; OEM Preinstalled Apps
+"OemPreInstalledAppsEnabled"=dword:00000000
+
+; Preinstalled Apps
+"PreInstalledAppsEnabled"=dword:00000000
+"PreInstalledAppsEverEnabled"=dword:00000000
+
+; Disable silent app downloads
+"SilentInstalledAppsEnabled"=dword:00000000
+
+; Disable Ads/Tips
+"RotatingLockScreenEnabled"=dword:00000000
+"RotatingLockScreenOverlayEnabled"=dword:00000000
+
+; Disable Occasionally show suggestions in Start
+"SystemPaneSuggestionsEnabled"=dword:00000000
+
+; Tips about Windows
+"SoftLandingEnabled"=dword:00000000
+"SubscribedContentEnabled"=dword:00000000
+"SubscribedContentEnabled"=dword:00000000
+
+; Turn Off Welcome Experience
+"SubscribedContent-310093Enabled"=dword:00000000
+
+; Turn Off Suggested Content in Settings
+"SubscribedContent-338393Enabled"=dword:00000000
+"SubscribedContent-353694Enabled"=dword:00000000
+"SubscribedContent-353696Enabled"=dword:00000000
+"SubscribedContent-88000105Enabled"=dword:00000000
+
+; Turn Off My People Suggested Apps
+"SubscribedContent-314563Enabled"=dword:00000000
+
+; Turn Off Timeline Suggestions
+"SubscribedContent-353698Enabled"=dword:00000000
+
+; Turn Off "Get fun facts, tips and more from Windows and Cortana on your lock screen"
+"SubscribedContent-338387Enabled"=dword:00000000
+
+; Occasionally show suggestions in Start
+"SubscribedContent-338388Enabled"=dword:00000000
+
+; Turn Off "Get tips, tricks, and suggestions as you use Windows"
+"SubscribedContent-338389Enabled"=dword:00000000
+
+; Turn Off App Suggestions on Start
+"SystemPaneSuggestionsEnabled"=dword:00000000
+
+; Windows Spotlight
+"SubscribedContent-202914Enabled"=dword:00000000
+
+; SyncProviders - OneDrive
+"SubscribedContent-280810Enabled"=dword:00000000
+
+; OneDrive
+"SubscribedContent-280811Enabled"=dword:00000000
+
+; Windows Ink - StokedOnIt
+"SubscribedContent-280813Enabled"=dword:00000000
+
+; Share - Facebook Instagram
+"SubscribedContent-280815Enabled"=dword:00000000
+
+; Feature management
+"SubscribedContent-310091Enabled"=dword:00000000
+"SubscribedContent-310092Enabled"=dword:00000000
+"SubscribedContent-338380Enabled"=dword:00000000
+
+; BingWeather & Candy Crush
+"SubscribedContent-314559Enabled"=dword:00000000
+
+; Windows Maps
+"SubscribedContent-338381Enabled"=dword:00000000
+
+[-HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Subscriptions]
+[-HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\SuggestedApps]
+
+; Disable Show most used apps
+; Disabling this won't keep 'Run' history
+;[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+;"Start_TrackProgs"=dword:00000000
+
+; Disable clipboard history
+[HKEY_CURRENT_USER\Software\Microsoft\Clipboard]
+"EnableClipboardHistory"=dword:00000000
+
+
+
+
+;;;; Begin Privacy Settings
+
+; General
+;
+
+; Let apps use my advertising ID for experiences across apps
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo]
+"Enabled"=dword:00000000
+"Id"=-
+
+; Turn on smart screen filter to check web content (URLs) that Windows Store apps use
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AppHost]
+"EnableWebContentEvaluation"=dword:00000000
+
+; Send Microsoft info about how I write to help us improve typing and writing in the future
+[HKEY_CURRENT_USER\Software\Microsoft\Input\TIPC]
+"Enabled"=dword:00000000
+
+; Let websites provide locally relevant content by accessing my language list
+[HKEY_CURRENT_USER\Control Panel\International\User Profile]
+"HttpAcceptLanguageOptOut"=dword:00000001
+
+; Location
+;
+
+; Location service
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}]
+"Value"="Deny"
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{E6AD100E-5F4E-44CD-BE0F-2265D88D14F5}]
+"Value"="Deny"
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows NT\CurrentVersion\Sensor\Permissions\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}]
+"SensorPermissionState"=dword:00000000
+
+; Camera
+;
+
+; Let apps use my camera
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{E5323777-F976-4f5b-9B55-B94699C46E44}]
+"InitialAppValue"="Unspecified"
+"Type"="InterfaceClass"
+"Value"="Deny"
+
+; Let apps use my microphone
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{2EEF81BE-33FA-4800-9670-1CD474972C3F}]
+"InitialAppValue"="Unspecified"
+"Type"="InterfaceClass"
+"Value"="Deny"
+
+; Let apps access my notifications
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{52079E78-A92B-413F-B213-E8FE35712E72}]
+"InitialAppValue"="Unspecified"
+"Type"="InterfaceClass"
+"Value"="Deny"
+
+; Speech, inking, and typing
+;
+
+[HKEY_CURRENT_USER\Software\Microsoft\Personalization\Settings]
+"AcceptedPrivacyPolicy"=dword:00000000
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Language]
+"Enabled"=dword:00000000
+
+[HKEY_CURRENT_USER\Software\Microsoft\InputPersonalization]
+"RestrictImplicitInkCollection"=dword:00000001
+"RestrictImplicitTextCollection"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\InputPersonalization\TrainedDataStore]
+"HarvestContacts"=dword:00000000
+
+; Account Info
+;
+
+; Let apps access my name, picture, and other account info
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{C1D23ACC-752B-43E5-8448-8D0E519CD6D6}]
+"Value"="Deny"
+
+; Contacts
+;
+
+; Let apps access my contacts
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{7D7E8402-7C54-4821-A34E-AEEFD62DED93}]
+"InitialAppValue"="Unspecified"
+"Type"="InterfaceClass"
+"Value"="Deny"
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\contacts]
+"Value"="Deny"
+
+; Calendar
+;
+
+; Let apps access my calendar
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{D89823BA-7180-4B81-B50C-7E471E6121A3}]
+"Value"="Deny"
+
+; Call History
+;
+
+; Let apps access my call history
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{8BC668CF-7728-45BD-93F8-CF2B3B41D7AB}]
+"Value"="Deny"
+
+; Email
+;
+
+; Let apps access and send email
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{9231CB4C-BF57-4AF3-8C55-FDA7BFCC04C5}]
+"Value"="Deny"
+
+; Tasks
+;
+
+; Choose apps that can access tasks
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{E390DF20-07DF-446D-B962-F5C953062741}]
+"InitialAppValue"="Unspecified"
+"Type"="InterfaceClass"
+"Value"="Deny"
+
+; Messaging
+;
+
+; Let apps read or send messages (text or MMS)
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{992AFA70-6F47-4148-B3E9-3003349C1548}]
+"Value"="Deny"
+
+; Radios
+;
+
+; Let apps control radios
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{A8804298-2D5F-42E3-9531-9C8C39EB29CE}]
+"Value"="Deny"
+
+; Other devices
+;
+
+; Let your apps automatically share and sync info with wireless devices that don’t explicitly pair with your PC, tablet, or phone
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\LooselyCoupled]
+"Value"="Deny"
+
+; Windows should ask for my feedback (Never)
+[HKEY_CURRENT_USER\Software\Microsoft\Siuf\Rules]
+"NumberOfSIUFInPeriod"=dword:00000000
+
+; Background apps
+; Let apps run in the background
+; Setting these will also disable Explorer notifications (such as to safely remove hardware) in 1809 & later
+;[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications]
+;"GlobalUserDisabled"=dword:00000001
+
+;[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search]
+;"BackgroundAppGlobalToggle"=dword:00000000
+
+; Individual background apps
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.3DBuilder_8wekyb3d8bbwe]
+"DisabledByUser"=dword:00000001
+"Disabled"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.BingWeather_8wekyb3d8bbwe]
+"DisabledByUser"=dword:00000001
+"Disabled"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.Getstarted_8wekyb3d8bbwe]
+"DisabledByUser"=dword:00000001
+"Disabled"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.Messaging_8wekyb3d8bbwe]
+"DisabledByUser"=dword:00000001
+"Disabled"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.MicrosoftEdge_8wekyb3d8bbwe]
+"DisabledByUser"=dword:00000001
+"Disabled"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.MicrosoftOfficeHub_8wekyb3d8bbwe]
+"DisabledByUser"=dword:00000001
+"Disabled"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.MicrosoftSolitaireCollection_8wekyb3d8bbwe]
+"DisabledByUser"=dword:00000001
+"Disabled"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.MicrosoftStickyNotes_8wekyb3d8bbwe]
+"DisabledByUser"=dword:00000001
+"Disabled"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.Office.OneNote_8wekyb3d8bbwe]
+"DisabledByUser"=dword:00000001
+"Disabled"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.OneConnect_8wekyb3d8bbwe]
+"DisabledByUser"=dword:00000001
+"Disabled"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.People_8wekyb3d8bbwe]
+"DisabledByUser"=dword:00000001
+"Disabled"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.PPIProjection_cw5n1h2txyewy]
+"DisabledByUser"=dword:00000001
+"Disabled"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.SkypeApp_kzf8qxf38zg5c]
+"DisabledByUser"=dword:00000001
+"Disabled"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.Windows.Photos_8wekyb3d8bbwe]
+"DisabledByUser"=dword:00000001
+"Disabled"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.WindowsAlarms_8wekyb3d8bbwe]
+"DisabledByUser"=dword:00000001
+"Disabled"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.WindowsCalculator_8wekyb3d8bbwe]
+"DisabledByUser"=dword:00000001
+"Disabled"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.WindowsCamera_8wekyb3d8bbwe]
+"DisabledByUser"=dword:00000001
+"Disabled"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\microsoft.windowscommunicationsapps_8wekyb3d8bbwe]
+"DisabledByUser"=dword:00000001
+"Disabled"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.WindowsFeedbackHub_8wekyb3d8bbwe]
+"DisabledByUser"=dword:00000001
+"Disabled"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.WindowsMaps_8wekyb3d8bbwe]
+"DisabledByUser"=dword:00000001
+"Disabled"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.WindowsSoundRecorder_8wekyb3d8bbwe]
+"DisabledByUser"=dword:00000001
+"Disabled"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.WindowsStore_8wekyb3d8bbwe]
+"DisabledByUser"=dword:00000001
+"Disabled"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.XboxApp_8wekyb3d8bbwe]
+"DisabledByUser"=dword:00000001
+"Disabled"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.ZuneMusic_8wekyb3d8bbwe]
+"DisabledByUser"=dword:00000001
+"Disabled"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.ZuneVideo_8wekyb3d8bbwe]
+"DisabledByUser"=dword:00000001
+"Disabled"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Windows.ContactSupport_cw5n1h2txyewy]
+"DisabledByUser"=dword:00000001
+"Disabled"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\windows.immersivecontrolpanel_cw5n1h2txyewy]
+"DisabledByUser"=dword:00000001
+"Disabled"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.Microsoft3DViewer_8wekyb3d8bbwe]
+"DisabledByUser"=dword:00000001
+"Disabled"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.MSPaint_8wekyb3d8bbwe]
+"DisabledByUser"=dword:00000001
+"Disabled"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications\Microsoft.Windows.SecHealthUI_cw5n1h2txyewy]
+"DisabledByUser"=dword:00000001
+"Disabled"=dword:00000001
+
+; App diagnostics
+;
+
+; Let apps access diagnostic information
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{2297E4E2-5DBE-466D-A12B-0F8286F0D9CA}]
+"InitialAppValue"="Unspecified"
+"Type"="InterfaceClass"
+"Value"="Deny"
+
+; Allow access to document libraries on this device
+;
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\documentsLibrary]
+"Value"="Deny"
+
+; Allow access to picture libraries on this device
+;
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\picturesLibrary]
+"Value"="Deny"
+
+; Allow access to video libraries on this device
+;
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\videosLibrary]
+"Value"="Deny"
+
+; Allow apps to access your file system
+;
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\broadFileSystemAccess]
+"Value"="Deny"
+
+
+
+;;;; End Privacy Settings
+
+
+
+; Pen & Windows Ink
+; Disable 'Show recommended app suggestions'
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\PenWorkspace]
+"PenWorkspaceButtonDesiredVisibility"=dword:00000000
+"PenWorkspaceAppSuggestionsEnabled"=dword:00000000

@@ -1,0 +1,7 @@
+## Example below done in PowerShell cmd:
+## This example is me going into a directory, then executing the command shown
+## which basically starts replacing every instance of "5960" with "5160" in a file's name inside the directory
+
+PS C:\Users\Administrator> cd "C:\Users\Administrator\Box\Example\Avery labels"
+PS C:\Users\Administrator\Box\Example\Avery labels>
+PS C:\Users\Administrator\Box\Example\Avery labels> Dir | Rename-Item -NewName { $_.name -replace "5960","5160" }
