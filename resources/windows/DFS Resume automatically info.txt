@@ -1,0 +1,12 @@
+As the warnings indicate to start recovery process (and to resume DFS replication) you have to issue following command at an elevated command prompt:
+
+wmic /namespace:\\root\microsoftdfs path dfsrVolumeConfig where volumeGuid="<GUID>" call ResumeReplication
+(Where <GUID> - ID specified in the above warnings.)
+
+Replication is not resumed automatically in order to give system administrator opportunity to backup replicated folders before starting recovery.
+If you prefer for replication to resume automatically you need make following registry change:
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DFSR\Parameters
+StopReplicationOnAutoRecovery = 0
+
+Default StopReplicationOnAutoRecovery value on Windows Server 2008 R2 and Server 2012 is "1". On Windows Server 2012 R2 it's "0".
