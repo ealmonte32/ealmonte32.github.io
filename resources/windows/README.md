@@ -1,14 +1,13 @@
 ### This directory contains some windows OS related files just to reference.
+___
 
-Files inside this dir:
+- Files inside this dir:
 
 DFS-Resume-automatically-info.txt
 
 Disable_Network_Location_Wizard.reg
 
 PS-replace-text-in-filename.txt
-
-README.md
 
 Windows-Commands.txt
 
