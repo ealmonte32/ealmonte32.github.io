@@ -1,7 +1,7 @@
 ### This directory contains some windows OS related files just to reference.
 
 For raw file content, prefix with:  
-https://raw.githubusercontent.com/ealmonte32/ealmonte32.github.io/main/resources/windows/  
+[https://raw.githubusercontent.com/ealmonte32/ealmonte32.github.io/main/resources/windows/](https://raw.githubusercontent.com/ealmonte32/ealmonte32.github.io/main/resources/windows/)  
 
 ___
 
