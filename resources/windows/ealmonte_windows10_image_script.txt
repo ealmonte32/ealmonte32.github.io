@@ -41,9 +41,14 @@ Get-AppxPackage -allUsers | Where-Object -Property Name -match "xbox"
 Set-ExecutionPolicy Unrestricted
 
 
-## ** make sure you dont delete any necessary apps, so it is suggested to search **
-## ** to search, use Get-AppxPackage -allusers | findstr /i "namehere" **
+## make sure you dont delete any necessary apps, so it is suggested to search
+## to search, use Get-AppxPackage -allusers | findstr /i "namehere"
+## to remove the package we do: Remove-AppxPackage -AllUsers "packagename"
 ## for example the dell packages can include drivers by dell so we dont want to delete this
+## also there is a difference between AppxProvisionedPackage and AppxPackage
+## to find the provisioned packages we write: Get-AppxProvisionedPackage -Online | findstr /i "namehere"
+## then to delete we write: Remove-AppxProvisionedPackage -AllUsers -Online -PackageName "namehere"
+## we do the same for non-provisioned apps, so we search with: 
 
 ## to remove the unwanted packages that come preinstalled, we have to do this
 ## open up powershell ISE as administrator and paste the following commands and run:
