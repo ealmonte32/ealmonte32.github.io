@@ -1,0 +1,86 @@
+Notes to create an automated script to execute commands
+that will modify Windows 10 OS settings to customize it...
+3/2021
+======================================================================
+
+## the following command will enable the Allow admin approval mode:
+reg add HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v FilterAdministratorToken /t REG_DWORD /d 1
+
+## disable the Microsoft Consumer Experience which installs games and third-party apps:
+reg add HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent /v DisableWindowsConsumerFeatures /t REG_DWORD /d 1
+
+## disable the action center
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer" /v DisableNotificationCenter /t REG_DWORD /d 1
+
+## disable cortana
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /v AllowCortana /t REG_DWORD /d 0
+
+## the following command will get a list of enabled system features:
+dism /online /get-features /format:table
+
+## then, to disable or enable any feature:
+dism /online /enable-feature /featurename:FeatureName
+
+## enable .NET 3.5/3.0 for legacy apps:
+dism /online /enable-feature /featurename:NetFx3
+
+## turn off work folders and search from start menu:
+dism /online /disable-feature /featurename:WorkFolders-Client /Norestart
+dism /online /disable-feature /featurename:SearchEngine-Client-Package /Norestart
+
+## remove the microsoft quick assist capability:
+dism /online /remove-capability /capabilityname:app.support.quickassist~~~~0.0.1.0 /norestart
+
+
+
+## this is an example of searching through the packages currently on the system for any containing xbox:
+Get-AppxPackage -allUsers | Where-Object -Property Name -match "xbox"
+
+
+## Before being allowed to run all these commands, we need to disable the restriction:
+Set-ExecutionPolicy Unrestricted
+
+## to remove the unwanted packages that come preinstalled, we have to do this
+## open up powershell ISE as administrator and paste the following commands and run:
+
+Get-AppxPackage -allusers Microsoft.MicrosoftSolitaireCollection* | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.WindowsMaps | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.Wallet* | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.Xbox* | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.YourPhone* | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.Zune* | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.People* | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.Windows.ParentalControls* | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.Print3D* | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.Advertising.* | Remove-AppxPackage
+Get-AppxPackage -allusers Microsoft.Microsoft3DViewer* | Remove-AppxPackage
+Get-AppxPackage -allusers *getstarted* | Remove-AppxPackage
+Get-AppxPackage -allusers *messaging* | Remove-AppxPackage
+Get-AppxPackage -allusers *commsphone* | Remove-AppxPackage
+Get-AppxPackage -allusers *windowsphone* | Remove-AppxPackage
+Get-AppxPackage -allusers *sway* | Remove-AppxPackage
+Get-AppxPackage -allusers *phone* | Remove-AppxPackage
+Get-AppxPackage -allusers *people* | Remove-AppxPackage
+Get-AppxPackage -allusers *zunemusic* | Remove-AppxPackage
+Get-AppxPackage -allusers *zunevideo* | Remove-AppxPackage
+Get-AppxPackage -allusers *bingfinance* | Remove-AppxPackage
+Get-AppxPackage -allusers *bingnews* | Remove-AppxPackage
+Get-AppxPackage -allusers *bingsports* | Remove-AppxPackage
+Get-AppxPackage -allusers *bingweather* | Remove-AppxPackage
+Get-AppxPackage -allusers *bing* | Remove-AppxPackage
+Get-AppxPackage -allusers *onenote* | Remove-AppxPackage
+Get-AppxPackage -allusers *maps* | Remove-AppxPackage
+Get-AppxPackage -allusers *xbox* | Remove-AppxPackage
+Get-AppxPackage -allusers *officehub* | Remove-AppxPackage
+Get-AppxPackage -allusers *3dbuilder* | Remove-AppxPackage
+Get-AppxPackage -allusers *xbox* | Remove-AppxPackage
+
+## then we set the restrictions back to protect the localmachine:
+Set-ExecutionPolicy Default
+
+## We then check the health of the OS image:
+dism /online /cleanup-image /checkhealth
+dism /online /cleanup-image /scanhealth
+
+## and if component corruption found we can try to restore with:
+dism /online /cleanup-image /restorehealth
