@@ -68,4 +68,5 @@ echo Deleting the Task Scheduler Cache from registry
 reg delete "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tree" /f
 
 echo Done
+pause
 exit /B
