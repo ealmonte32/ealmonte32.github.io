@@ -40,6 +40,11 @@ Get-AppxPackage -allUsers | Where-Object -Property Name -match "xbox"
 ## Before being allowed to run all these commands, we need to disable the restriction:
 Set-ExecutionPolicy Unrestricted
 
+
+## ** make sure you dont delete any necessary apps, so it is suggested to search **
+## ** to search, use Get-AppxPackage -allusers | findstr /i "namehere" **
+## for example the dell packages can include drivers by dell so we dont want to delete this
+
 ## to remove the unwanted packages that come preinstalled, we have to do this
 ## open up powershell ISE as administrator and paste the following commands and run:
 
