@@ -21,6 +21,24 @@ body {
 
 }
 
+/* unvisited link */
+a:link {
+  color: white;
+}
+
+a:visited {
+  color: white;
+}
+
+a:hover {
+  color: white;
+  font-style: bold;
+}
+
+a:active {
+  color: white;
+}
+
 /*use for all elements */
 * {
   box-sizing: border-box;
