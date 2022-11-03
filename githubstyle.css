@@ -21,22 +21,13 @@ body {
 
 }
 
-/* unvisited link */
-a:link {
+/* links style */
+a:link, a:visited, a:active {
   color: white;
 }
-
-a:visited {
-  color: white;
-}
-
 a:hover {
   color: white;
-  font-style: bold;
-}
-
-a:active {
-  color: white;
+  text-decoration-line: underline overline;
 }
 
 /*use for all elements */
