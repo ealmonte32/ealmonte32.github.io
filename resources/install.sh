@@ -33,7 +33,7 @@ if [ "$WEB_UPGRADE" = false ]; then
 
   # Make sure the command is launched interactive.
   if ! [ -t 0  ]; then
-    echo -e "Detected old installation command. Please use:\n$ bash <(curl -sL https://www.screenlyapp.com/install-ose.sh)"
+    echo -e "Detected old installation command. Please use:\n$ bash <(curl -sL https://github.com/ealmonte32/ealmonte32.github.io/edit/main/resources/install.sh)"
     exit 1
   fi
 
@@ -188,13 +188,9 @@ cd /home/pi/screenly/ansible
 
 sudo -E ansible-playbook site.yml "${EXTRA_ARGS[@]}"
 
-# Pull down and install containers
-/home/pi/screenly/bin/upgrade_containers.sh
-
 sudo apt-get autoclean
 sudo apt-get clean
-# testing if this is the casue of containers not starting after fresh install
-# sudo docker system prune -f
+sudo docker system prune -f
 sudo apt autoremove -y
 sudo apt-get install plymouth --reinstall -y
 sudo find /usr/share/doc \
@@ -269,6 +265,10 @@ check_defaultpw () {
 }
 
 check_defaultpw;
+
+# Pull down and install containers
+echo "Pulling, installing, and bringing up containers.."
+/home/pi/screenly/bin/upgrade_containers.sh
 
 echo -e "Screenly version: $(git rev-parse --abbrev-ref HEAD)@$(git rev-parse --short HEAD)\n$(lsb_release -a)" > ~/version.md
 
