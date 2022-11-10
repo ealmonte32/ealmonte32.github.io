@@ -144,14 +144,14 @@ sudo mkdir -p /etc/ansible
 echo -e "[local]\nlocalhost ansible_connection=local" | sudo tee /etc/ansible/hosts > /dev/null
 
 if [ ! -f /etc/locale.gen ]; then
-    # No locales found. Creating locales with default UK/US setup.
-    echo -e "en_GB.UTF-8 UTF-8\nen_US.UTF-8 UTF-8" | sudo tee /etc/locale.gen > /dev/null
+    # No locales found. Creating locales with default US setup.
+    echo -e "en_US.UTF-8 UTF-8" | sudo tee /etc/locale.gen > /dev/null
     sudo locale-gen
 fi
 
 sudo sed -i 's/apt.screenlyapp.com/archive.raspbian.org/g' /etc/apt/sources.list
 sudo apt update -y
-sudo apt-get install -y  --no-install-recommends \
+sudo apt-get install -y --no-install-recommends \
     git \
     libffi-dev \
     libssl-dev \
@@ -193,7 +193,8 @@ sudo -E ansible-playbook site.yml "${EXTRA_ARGS[@]}"
 
 sudo apt-get autoclean
 sudo apt-get clean
-sudo docker system prune -f
+# testing if this is the casue of containers not starting after fresh install
+# sudo docker system prune -f
 sudo apt autoremove -y
 sudo apt-get install plymouth --reinstall -y
 sudo find /usr/share/doc \
