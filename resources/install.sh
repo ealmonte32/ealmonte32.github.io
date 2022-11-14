@@ -266,6 +266,9 @@ check_defaultpw () {
 
 check_defaultpw;
 
+# Reload systemd
+sudo systemctl daemon-reload
+
 # Pull down and install containers
 echo "Pulling, installing, and bringing up containers.."
 /home/pi/screenly/bin/upgrade_containers.sh
