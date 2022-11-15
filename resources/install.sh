@@ -266,8 +266,8 @@ check_defaultpw () {
 
 check_defaultpw;
 
-# Reload systemd
-sudo systemctl daemon-reload
+# Restart docker and container services
+sudo systemctl restart docker.service docker.socket containerd.service
 
 # Pull down and install containers
 echo "Pulling, installing, and bringing up containers.."
