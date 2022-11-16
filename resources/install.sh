@@ -33,7 +33,7 @@ if [ "$WEB_UPGRADE" = false ]; then
 
   # Make sure the command is launched interactive.
   if ! [ -t 0  ]; then
-    echo -e "Detected old installation command. Please use:\n$ bash <(curl -sL https://github.com/ealmonte32/ealmonte32.github.io/edit/main/resources/install.sh)"
+    echo -e "Detected old installation command. Please use:\n$ bash <(curl -sL https://raw.githubusercontent.com/ealmonte32/ealmonte32.github.io/main/resources/install.sh)"
     exit 1
   fi
 
@@ -62,7 +62,7 @@ EOF
   fi
 
   echo -e "Screenly OSE requires a dedicated Raspberry Pi / SD card.\nYou will not be able to use the regular desktop environment once installed.\n"
-  read -p "Do you still want to continue? (y/N)" -n 1 -r -s INSTALL
+  read -p "Do you still want to continue with EA test branch? (y/N)" -n 1 -r -s INSTALL
   if [ "$INSTALL" != 'y' ]; then
     echo
     exit 1
@@ -132,10 +132,10 @@ fi
 if [ -z "${REPOSITORY}" ]; then
   if [ "$WEB_UPGRADE" = false ]; then
     set -x
-    REPOSITORY=${1:-https://github.com/screenly/screenly-ose.git}
+    REPOSITORY=${1:-https://github.com/ealmonte32/screenly-ose.git}
   else
     set -e
-    REPOSITORY=https://github.com/screenly/screenly-ose.git
+    REPOSITORY=https://github.com/ealmonte32/screenly-ose.git
   fi
 fi
 
@@ -265,9 +265,6 @@ check_defaultpw () {
 }
 
 check_defaultpw;
-
-# Restart docker and container services
-sudo systemctl restart docker.service docker.socket containerd.service
 
 # Pull down and install containers
 echo "Pulling, installing, and bringing up containers.."
