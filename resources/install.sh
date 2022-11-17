@@ -62,7 +62,7 @@ EOF
   fi
 
   echo -e "Screenly OSE requires a dedicated Raspberry Pi / SD card.\nYou will not be able to use the regular desktop environment once installed.\n"
-  read -p "Do you still want to continue with EA test branch? (y/N)" -n 1 -r -s INSTALL
+  read -p "Do you still want to continue with ealmonte32 github branch? (y/N)" -n 1 -r -s INSTALL
   if [ "$INSTALL" != 'y' ]; then
     echo
     exit 1
