@@ -56,13 +56,13 @@ EOF
   # Reset color
   tput sgr 0
 
-  if [ "$USER" != 'pi' ]; then
-      echo "Screenly OSE must be installed as the user 'pi' (with sudo permission)."
-      exit 1
-  fi
+  #if [ "$USER" != 'pi' ]; then
+  #    echo "Screenly OSE must be installed as the user 'pi' (with sudo permission)."
+  #    exit 1
+  #fi
 
   echo -e "Screenly OSE requires a dedicated Raspberry Pi / SD card.\nYou will not be able to use the regular desktop environment once installed.\n"
-  read -p "Do you still want to continue with ealmonte32 github branch? (y/N)" -n 1 -r -s INSTALL
+  read -p "Do you still want to continue with ealmonte32 github development branch? (y/N)" -n 1 -r -s INSTALL
   if [ "$INSTALL" != 'y' ]; then
     echo
     exit 1
@@ -88,7 +88,8 @@ EOF
 
 # Remove these once the above code has been restored.
 export DOCKER_TAG="latest"
-export BRANCH="master"
+#export BRANCH="master"
+export BRANCH="development"
 
   echo && read -p "Do you want Screenly OSE to manage your network? This is recommended for most users because this adds features to manage your network. (Y/n)" -n 1 -r -s NETWORK && echo
 
@@ -101,7 +102,7 @@ elif [ "$WEB_UPGRADE" = true ]; then
   if [ -z "${BRANCH}" ]; then
     if [ "$BRANCH_VERSION" = "latest" ]; then
       export DOCKER_TAG="latest"
-      BRANCH="master"
+      BRANCH="development"
     elif [ "$BRANCH_VERSION" = "production" ]; then
       export DOCKER_TAG="production"
       BRANCH="production"
@@ -168,8 +169,8 @@ else
 fi
 
 # Install Ansible from requirements file.
-if [ "$BRANCH" = "master" ]; then
-    ANSIBLE_VERSION=$(curl -s https://raw.githubusercontent.com/Screenly/screenly-ose/$BRANCH/requirements/requirements.host.txt | grep ansible)
+if [ "$BRANCH" = "development" ]; then
+    ANSIBLE_VERSION=$(curl -s https://raw.githubusercontent.com/Screenly/screenly-ose/master/requirements/requirements.host.txt | grep ansible)
 else
     ANSIBLE_VERSION=ansible==2.8.8
 fi
@@ -183,8 +184,8 @@ sudo pip install "$ANSIBLE_VERSION"
 
 sudo -u pi ansible localhost \
     -m git \
-    -a "repo=$REPOSITORY dest=/home/pi/screenly version=$BRANCH force=no"
-cd /home/pi/screenly/ansible
+    -a "repo=$REPOSITORY dest=/home/${USER}/screenly version=$BRANCH force=no"
+cd /home/${USER}/screenly/ansible
 
 sudo -E ansible-playbook site.yml "${EXTRA_ARGS[@]}"
 
@@ -228,25 +229,25 @@ sudo find /usr/share/locale \
     ! -name 'locale.alias' \
     -exec rm -r {} \;
 
-sudo chown -R pi:pi /home/pi
+sudo chown -R ${USER}:${USER} /home/${USER}
 
 # Run sudo w/out password
 if [ ! -f /etc/sudoers.d/010_pi-nopasswd ]; then
-  echo "pi ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/010_pi-nopasswd > /dev/null
-  sudo chmod 0440 /etc/sudoers.d/010_pi-nopasswd
+  echo "${USER} ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/010_${USER}-nopasswd > /dev/null
+  sudo chmod 0440 /etc/sudoers.d/010_${USER}-nopasswd
 fi
 
 # Ask user to set a new pi password if default password "raspberry" detected
 check_defaultpw () {
-    if [ "$BRANCH" = "master" ] || [ "$BRANCH" = "production" ] && [ "$WEB_UPGRADE" = false ]; then
+    if [ "$BRANCH" = "development" ] || [ "$BRANCH" = "production" ] && [ "$WEB_UPGRADE" = false ]; then
         set +x
 
         # currently only looking for $6$/sha512 hash
         local VAR_CURRENTPISALT
         local VAR_CURRENTPIUSERPW
         local VAR_DEFAULTPIPW
-        VAR_CURRENTPISALT=$(sudo cat /etc/shadow | grep pi | awk -F '$' '{print $3}')
-        VAR_CURRENTPIUSERPW=$(sudo cat /etc/shadow | grep pi | awk -F ':' '{print $2}')
+        VAR_CURRENTPISALT=$(sudo cat /etc/shadow | grep ${USER} | awk -F '$' '{print $3}')
+        VAR_CURRENTPIUSERPW=$(sudo cat /etc/shadow | grep ${USER} | awk -F ':' '{print $2}')
         VAR_DEFAULTPIPW=$(mkpasswd -m sha-512 raspberry "$VAR_CURRENTPISALT")
 
         if [[ "$VAR_CURRENTPIUSERPW" == "$VAR_DEFAULTPIPW" ]]; then
@@ -268,7 +269,7 @@ check_defaultpw;
 
 # Pull down and install containers
 echo "Pulling, installing, and bringing up containers.."
-/home/pi/screenly/bin/upgrade_containers.sh
+/home/${USER}/screenly/bin/upgrade_containers.sh
 
 echo -e "Screenly version: $(git rev-parse --abbrev-ref HEAD)@$(git rev-parse --short HEAD)\n$(lsb_release -a)" > ~/version.md
 
