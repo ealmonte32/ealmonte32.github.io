@@ -185,7 +185,7 @@ sudo pip install cryptography==38.0.2
 
 sudo pip install "$ANSIBLE_VERSION"
 
-sudo -u pi ansible localhost \
+sudo -u ${USER} ansible localhost \
     -m git \
     -a "repo=$REPOSITORY dest=/home/${USER}/screenly version=$BRANCH force=no"
 cd /home/${USER}/screenly/ansible
