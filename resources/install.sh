@@ -190,7 +190,7 @@ sudo -u ${USER} ansible localhost \
     -a "repo=$REPOSITORY dest=/home/${USER}/screenly version=$BRANCH force=no"
 cd /home/${USER}/screenly/ansible
 
-sudo -E ansible-playbook site.yml "${EXTRA_ARGS[@]}"
+sudo -E -u ${USER} ansible-playbook site.yml "${EXTRA_ARGS[@]}"
 
 sudo apt-get autoclean
 sudo apt-get clean
