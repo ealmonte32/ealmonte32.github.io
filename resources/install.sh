@@ -140,6 +140,9 @@ if [ -z "${REPOSITORY}" ]; then
   fi
 fi
 
+if [ ! -f /home/${USER}/screenly ]; then
+    mkdir /home/${USER}/screenly
+fi
 
 sudo mkdir -p /etc/ansible
 echo -e "[local]\nlocalhost ansible_connection=local" | sudo tee /etc/ansible/hosts > /dev/null
