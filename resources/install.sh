@@ -55,36 +55,13 @@ EOF
 
   # Reset color
   tput sgr 0
-
-  #if [ "$USER" != 'pi' ]; then
-  #    echo "Screenly OSE must be installed as the user 'pi' (with sudo permission)."
-  #    exit 1
-  #fi
-
+  
   echo -e "Screenly OSE requires a dedicated Raspberry Pi / SD card.\nYou will not be able to use the regular desktop environment once installed.\n"
   read -p "Do you still want to continue with ealmonte32 github development branch? (y/N)" -n 1 -r -s INSTALL
   if [ "$INSTALL" != 'y' ]; then
     echo
     exit 1
   fi
-
-
-# @TODO Re-enable the 'production' branch once we've merged master into production
-#echo -e "\n________________________________________\n"
-#echo -e "Which version/branch of Screenly OSE would you like to install:\n"
-#echo " Press (1) for the Production branch, which is the latest stable."
-#echo " Press (2) for the Development/Master branch, which has the latest features and fixes, but things may break."
-#echo ""
-
-#read -n 1 -r -s BRANCHSELECTION
-#case $BRANCHSELECTION in
-#  1) echo "You selected: Production";export DOCKER_TAG="production";BRANCH="production"
-#    ;;
-#  2) echo "You selected: Development/Master";export DOCKER_TAG="latest";BRANCH="master"
-#    ;;
-#  *) echo "(Error) That was not an option, installer will now exit.";exit
-#    ;;
-#esac
 
 # Remove these once the above code has been restored.
 export DOCKER_TAG="latest"
@@ -178,13 +155,8 @@ else
     ANSIBLE_VERSION=ansible==2.8.8
 fi
 
-# @TODO
-# Remove me later. Cryptography 38.0.3 won't build at the moment.
-# See https://github.com/Screenly/screenly-ose/issues/1654
 sudo pip install cryptography==38.0.2
-
 sudo pip install "$ANSIBLE_VERSION"
-
 sudo -u ${USER} ansible localhost \
     -m git \
     -a "repo=$REPOSITORY dest=/home/${USER}/screenly version=$BRANCH force=no"
@@ -239,36 +211,6 @@ if [ ! -f /etc/sudoers.d/010_pi-nopasswd ]; then
   echo "${USER} ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/010_${USER}-nopasswd > /dev/null
   sudo chmod 0440 /etc/sudoers.d/010_${USER}-nopasswd
 fi
-
-# Ask user to set a new pi password if default password "raspberry" detected
-check_defaultpw () {
-    if [ "$BRANCH" = "development" ] || [ "$BRANCH" = "production" ] && [ "$WEB_UPGRADE" = false ]; then
-        set +x
-
-        # currently only looking for $6$/sha512 hash
-        local VAR_CURRENTPISALT
-        local VAR_CURRENTPIUSERPW
-        local VAR_DEFAULTPIPW
-        VAR_CURRENTPISALT=$(sudo cat /etc/shadow | grep ${USER} | awk -F '$' '{print $3}')
-        VAR_CURRENTPIUSERPW=$(sudo cat /etc/shadow | grep ${USER} | awk -F ':' '{print $2}')
-        VAR_DEFAULTPIPW=$(mkpasswd -m sha-512 raspberry "$VAR_CURRENTPISALT")
-
-        if [[ "$VAR_CURRENTPIUSERPW" == "$VAR_DEFAULTPIPW" ]]; then
-            echo "Warning: The default Raspberry Pi password was detected!"
-            read -p "Do you still want to change it? (y/N)" -n 1 -r -s PWD_CHANGE
-            if [ "$PWD_CHANGE" = 'y' ]; then
-                set +e
-                passwd
-                set -ex
-            fi
-        else
-            echo "The default raspberry pi password was not detected, continuing with installation..."
-            set -x
-        fi
-    fi
-}
-
-check_defaultpw;
 
 # Pull down and install containers
 echo "Pulling, installing, and bringing up containers.."
