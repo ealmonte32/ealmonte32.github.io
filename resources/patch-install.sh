@@ -33,7 +33,7 @@ if [ "$WEB_UPGRADE" = false ]; then
 
   # Make sure the command is launched interactive.
   if ! [ -t 0  ]; then
-    echo -e "Detected old installation command. Please use:\n$ bash <(curl -sL https://raw.githubusercontent.com/ealmonte32/ealmonte32.github.io/main/resources/install.sh)"
+    echo -e "Detected old installation command. Please use:\n$ bash <(curl -sL https://...."
     exit 1
   fi
 
