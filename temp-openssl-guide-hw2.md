@@ -57,8 +57,6 @@ Then, if we use the command to inspect a certificate, we can see that our Root C
 `openssl x509 -in msu-csit560.com.crt -text`
 
 ![image](https://github.com/ealmonte32/ealmonte32.github.io/assets/24350198/ee3bfc78-2def-4ec2-a8ff-f86181b694ad)
-
-.
-.
-.
-`-Emyll Almonte`
+<br>
+<br>
+`By: Emyll Almonte`
