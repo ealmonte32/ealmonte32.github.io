@@ -17,6 +17,27 @@ Notice that on my screenshot below there is a "^C" that means I pressed `Control
 Then, to view the information better, we can use the following OpenSSL command:
 `openssl x509 -in exported-cert-data.crt -text`
 
-As you can see from the screenshow below, the information shows you who the issuer of the certificate is (DigiCert Inc), and who the certificate was issued to (Subject):
+As you can see from the screenshow below, the information shows you who the issuer of the certificate is (DigiCert Inc), the validity date (when the certificate was issued and when it expires), and who the certificate was issued to (Subject), are just some of the important information displayed:
 
 ![image](https://github.com/ealmonte32/ealmonte32.github.io/assets/24350198/48e2bfef-ce60-4af6-8c27-ecbf20f5baa9)
+
+---
+
+For (Q1-b):
+We now need to create our own Root CA (Certificate Authority), like if we were DigiCert, and we need to issue a certificate to some website that requests it, for example a website called "`msu-csit560.com`":
+
+We start by taking care of creating our Root CA stuff, starting with generating a RSA private key with 2048 bits of length:
+`openssl genrsa -out myRootCA.key 2048`
+
+![image](https://github.com/ealmonte32/ealmonte32.github.io/assets/24350198/8927eba7-d710-4dd8-ab88-3fcd81aa4cc1)
+
+Then, we create a certificate for our Root CA using our private key we previously created:
+`openssl req -new -x509 -key myRootCA.key -out myRootCA.crt`
+
+![image](https://github.com/ealmonte32/ealmonte32.github.io/assets/24350198/54fb946c-4bbf-4a34-9827-893ad8d0d5bb)
+
+
+
+
+
+.
