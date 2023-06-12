@@ -31,13 +31,34 @@ We start by taking care of creating our Root CA stuff, starting with generating 
 
 ![image](https://github.com/ealmonte32/ealmonte32.github.io/assets/24350198/8927eba7-d710-4dd8-ab88-3fcd81aa4cc1)
 
-Then, we create a certificate for our Root CA using our private key we previously created:
+Then, we create a certificate for our Root CA using our private key we previously created (I am simplifying the step by omitting other parameters like `-days` which is used to set how long the certificate is valid for, and what hashing algorithm to use `-sha256`):
 `openssl req -new -x509 -key myRootCA.key -out myRootCA.crt`
 
 ![image](https://github.com/ealmonte32/ealmonte32.github.io/assets/24350198/54fb946c-4bbf-4a34-9827-893ad8d0d5bb)
 
+When this is done, we have two files, our Root CA private key, and our Root CA certificate:
+`myRootCA.key` and `myRootCA.crt`
 
+Now, we will be issuing a certificate for that sample website mentioned before `msu-csit560.com` and then creating a CSR which means certificate signing request:
+`openssl genrsa -out msu-csit560.com.key 2048`
+then
+`openssl req -new -key msu-csit560.com.key -out msu-csit560.com.csr`
 
+![image](https://github.com/ealmonte32/ealmonte32.github.io/assets/24350198/dfe34d43-6994-4361-96b8-5b625da7aadb)
 
+As you can see from the previous screenshot, we generated the private key and then we created a csr specifically for the sample website.
+
+Now, we will be acting as the Certificate Authority with our MyRootCA files, and we are going to sign and issue the certificate for the sample website:
+`openssl x509 -req -in msu-csit560.com.csr -CA myRootCA.crt -CAkey myRootCA.key -CAcreateserial -out msu-csit560.com.crt`
+
+![image](https://github.com/ealmonte32/ealmonte32.github.io/assets/24350198/480c1f89-8197-43b1-94d6-8f0d27976e62)
+
+Then, if we use the command to inspect a certificate, we can see that our Root CA was the one that issued the certificate and who we issued it to:
+`openssl x509 -in msu-csit560.com.crt -text`
+
+![image](https://github.com/ealmonte32/ealmonte32.github.io/assets/24350198/ee3bfc78-2def-4ec2-a8ff-f86181b694ad)
 
 .
+.
+.
+`-Emyll Almonte`
