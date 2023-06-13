@@ -8,9 +8,9 @@ We want to simply connect to a website and get the certificate information, for 
 
 You can name the file whatever you want, but make sure the extension is either `.crt` or `.pem`.
 
-Once you run that command, you might need to force an exit of the connection since you already the information redirected ">" to the file "exported-cert-data.crt".
+Once you run that command, you might need to force an exit of the connection since you already have the information redirected ">" to the file "exported-cert-data.crt".
 
-Notice that on my screenshot below there is a "^C" that means I pressed `Control+C` to cancel out / exit out of the openssl s_client connection to www.amazon.com for the purpose of getting the certificate info I needed.
+Notice that on my screenshot below there is a "^C" towards the bottom of console output, that means I pressed `Control+C` to cancel out / exit out of the openssl s_client connection to www.amazon.com for the purpose of getting the certificate info I needed.
 
 ![image](https://github.com/ealmonte32/ealmonte32.github.io/assets/24350198/f1f01e9d-1e91-471b-8310-ad29125b093f)
 
@@ -26,7 +26,7 @@ As you can see from the screenshow below, the information shows you who the issu
 For (Q1-b):
 We now need to create our own Root CA (Certificate Authority), like if we were DigiCert, and we need to issue a certificate to some website that requests it, for example a website called "`msu-csit560.com`":
 
-We start by taking care of creating our Root CA stuff, starting with generating a RSA private key with 2048 bits of length:<br>
+We start by taking care of creating our Root CA stuff, starting with generating an RSA private key with 2048 bits:<br>
 `openssl genrsa -out myRootCA.key 2048`
 
 ![image](https://github.com/ealmonte32/ealmonte32.github.io/assets/24350198/8927eba7-d710-4dd8-ab88-3fcd81aa4cc1)
@@ -39,8 +39,8 @@ Then, we create a certificate for our Root CA using our private key we previousl
 When this is done, we have two files, our Root CA private key, and our Root CA certificate:<br>
 `myRootCA.key` and `myRootCA.crt`
 
-Now, we will be issuing a certificate for that sample website mentioned before `msu-csit560.com` and then creating a CSR which means certificate signing request:<br>
-`openssl genrsa -out msu-csit560.com.key 2048`
+Now, we will be issuing a certificate for that sample website mentioned before, `msu-csit560.com`, and then creating a CSR which means certificate signing request:<br>
+`openssl genrsa -out msu-csit560.com.key 2048`<br>
 then<br>
 `openssl req -new -key msu-csit560.com.key -out msu-csit560.com.csr`
 
@@ -48,7 +48,7 @@ then<br>
 
 As you can see from the previous screenshot, we generated the private key and then we created a csr specifically for the sample website.
 
-Now, we will be acting as the Certificate Authority with our MyRootCA files, and we are going to sign and issue the certificate for the sample website:<br>
+Now, we will be acting as the Certificate Authority with our myRootCA files, and we are going to sign and issue the certificate for the sample website:<br>
 `openssl x509 -req -in msu-csit560.com.csr -CA myRootCA.crt -CAkey myRootCA.key -CAcreateserial -out msu-csit560.com.crt`
 
 ![image](https://github.com/ealmonte32/ealmonte32.github.io/assets/24350198/480c1f89-8197-43b1-94d6-8f0d27976e62)
