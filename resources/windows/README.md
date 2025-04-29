@@ -5,7 +5,7 @@ For raw file content, prefix with:
 
 ___
 
-Filenames:
+Example of some filenames:
 
 - DFS-Resume-automatically-info.txt
 - Disable_Network_Location_Wizard.reg
