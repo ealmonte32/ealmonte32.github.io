@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <meta name="Content-Language" content="en" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <title>CheckQRVT - Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="checkQRVT logo.png" alt="CheckQRVT Logo">
+            <h1>CheckQRVT</h1>
+        </div>
+        <!-- Hamburger Menu Button for Mobile -->
+        <button class="nav-toggle">☰</button>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="abstract.html">Abstract</a></li>
+                <li><a href="introduction.html">Introduction</a></li>
+                <li><a href="problem.html">Problem</a></li>
+                <li><a href="solution.html">Solution</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Welcome to CheckQRVT</h2>
+                <p>Your go-to tool for secure QR code scanning and URL analysis.</p>
+                <p>CheckQRVT ensures that every link you scan is safe by utilizing VirusTotal's powerful URL scanning service, helping you avoid phishing and malware attacks.</p>
+                <a href="abstract.html" class="cta-button">Learn More</a>
+            </div>
+        </section>
+
+        <section>
+            <h3>Key Features of CheckQRVT:</h3>
+            <ul>
+                <li><strong>Redirect Analysis:</strong> Detects and analyzes any redirects that might occur from the original URL to ensure that the final destination is safe.</li>
+                <li><strong>Integration with VirusTotal:</strong> Leverages VirusTotal's extensive database of antivirus engines to provide a comprehensive safety report for scanned URLs.</li>
+                <li><strong>Open Source:</strong> Developed as an open-source project, allowing for transparency and contributions from the community to enhance its functionality.</li>
+                <li><strong>Cross-Browser Compatibility:</strong> Coming soon...</li>
+                <li><strong>Web-Based Version:</strong> Users can also utilize the web-based version of CheckQRVT for manual URL submissions at <a href="http://checkvt.epizy.com/">checkvt.epizy.com</a>.</li>
+            </ul>
+
+            <h3>Technical Implementation</h3>
+            <p>The CheckQRVT tool is built using a combination of web technologies, including HTML, PHP, CURL, JavaScript, Java, Python, and MySQL. Each component plays a crucial role in the overall functionality, from handling URL submissions to interacting with VirusTotal's API for in-depth analysis. By using PHP and CURL for backend processing, CheckQRVT efficiently retrieves HTTP headers and handles URL redirects to provide users with accurate and detailed results.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="current-year"></span> CheckQRVT</p>
+    </footer>
+	<script src="script.js"></script>
+
+</body>
+</html>

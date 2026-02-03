@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <meta name="Content-Language" content="en" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <title>CheckQRVT - Solution</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="checkQRVT logo.png" alt="CheckQRVT Logo">
+            <h1>CheckQRVT</h1>
+        </div>
+        <!-- Hamburger Menu Button for Mobile -->
+        <button class="nav-toggle">☰</button>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="abstract.html">Abstract</a></li>
+                <li><a href="introduction.html">Introduction</a></li>
+                <li><a href="problem.html">Problem</a></li>
+                <li><a href="solution.html" class="active">Solution</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Solution</h2>
+            <p>CheckQRVT is designed to bridge the gap in QR code security by acting as a secure QR code reader that performs thorough URL analysis. The app takes a unique approach to URL scanning by checking not only the initial URL scanned by the user but also any redirect URLs that the original link might lead to. This process ensures that users receive comprehensive information about where the link ultimately directs them, thus enhancing their online safety.</p>
+            
+            <p>The app works by submitting the URL from the QR code to VirusTotal, a service that uses over 70 different antivirus scanners and URL blacklisting services to detect potential malware and phishing attempts. What sets CheckQRVT apart is its ability to identify and analyze redirected URLs, a feature that is currently not available in the VirusTotal mobile app itself. This additional step allows CheckQRVT users to see the VirusTotal results for the final URL destination, providing them with greater insight into the link’s safety.</p>
+
+            <h3>How CheckQRVT Solves This Problem</h3>
+            <p>Our CheckQRVT scanner app provides a much-needed solution by scanning and analyzing the final destination URL, not just the initial shortened link. By doing this, CheckQRVT gives users a more accurate and thorough security report, ensuring they avoid the hidden risks posed by URL shortening and redirection.</p>
+
+            <div class="solution-example">
+                <h3>Example of CheckQRVT in Action</h3>
+
+                <div class="example-step">
+                    <p><strong>1. Scanning a Shortened URL:</strong> CheckQRVT scans the QR code containing a shortened URL.</p>
+                    <img src="image4_solution.png" alt="Shortened URL scan process in CheckQRVT" class="example-image">
+                </div>
+
+                <div class="example-step">
+                    <p><strong>2. Analyzing the Final Destination:</strong> The app redirects the shortened URL and shows the VirusTotal page results for the final destination URL.</p>
+                    <img src="image5_solution.png" alt="VirusTotal results for the final URL in CheckQRVT" class="example-image">
+                </div>
+            </div>
+
+            <h3>Future Improvements</h3>
+            <p>In future versions, the CheckQRVT app aims to expand its capabilities to address some of the current limitations. For instance, improvements will focus on full URL analysis rather than only the hostname or domain, reducing the chances of receiving "Item not found" errors. The project also plans to enhance its detection methods to handle obfuscated URLs, such as those hidden using JavaScript redirections or data URIs, which are commonly used in phishing attempts.</p>
+
+            <p>The ultimate goal is to make CheckQRVT a robust, user-friendly tool that empowers users to navigate the web securely, especially when dealing with the increasing prevalence of QR codes in everyday scenarios.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="current-year"></span> CheckQRVT</p>
+    </footer>
+	<script src="script.js"></script>
+</body>
+</html>
