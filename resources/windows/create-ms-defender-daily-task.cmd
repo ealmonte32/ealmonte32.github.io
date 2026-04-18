@@ -1,0 +1,1 @@
+schtasks /Create /RU "SYSTEM" /SC DAILY /TN "RunMpCmdRun_SignatureUpdate" /TR "\"C:\Program Files\Windows Defender\MpCmdRun.exe\" -SignatureUpdate" /ST 00:00 /F /RI 60 /DU 24:00 /RL HIGHEST
